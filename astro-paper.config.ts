@@ -12,7 +12,7 @@ export default defineAstroPaperConfig({
     timezone: "Asia/Seoul",
     dir: "ltr",
   },
-  posts: { perPage: 8, perIndex: 6 },
+  posts: { perPage: 8 },
   features: {
     lightAndDarkMode: true,
     dynamicOgImage: true,

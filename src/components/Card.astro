@@ -7,49 +7,54 @@ import { slugifyStr } from "@/utils/slugify";
 import Datetime from "./Datetime.astro";
 type Props = {
   variant?: "h2" | "h3";
-  featured?: boolean;
 } & CollectionEntry<"posts">;
-const {
-  variant: Heading = "h2",
-  featured = false,
-  id,
-  data,
-  filePath,
-} = Astro.props;
+const { variant: Heading = "h2", id, data, filePath } = Astro.props;
+const postUrl = getPostUrl(id, filePath, Astro.currentLocale);
+const coverImage = data.coverImage;
 ---
 
-<li class:list={["post-card", { "post-card-featured": featured }]}>
-  <div class="card-topline">
-    <span class="eyebrow"
-      >{
-        data.draft
-          ? "DRAFT · 로컬 초안"
-          : featured
-            ? "PICKED NOTE"
-            : "ENGINEERING NOTE"
-      }</span
-    ><span class="card-arrow" aria-hidden="true">↗</span>
-  </div>
-  <a class="card-title" href={getPostUrl(id, filePath, Astro.currentLocale)}
-    ><Heading transition:name={toTransitionName(id)}>{data.title}</Heading></a
-  >
-  <p class="card-description">{data.description}</p>
-  <div class="card-bottom">
-    <Datetime {...data} /><div class="card-tags">
-      {
-        data.tags
-          .slice(0, 2)
-          .map(tag => (
-            <a
-              href={getRelativeLocaleUrl(
-                Astro.currentLocale ?? "ko",
-                `tags/${slugifyStr(tag)}`
-              )}
-            >
-              #{tag}
-            </a>
-          ))
-      }
+<li class="post-card">
+  {
+    coverImage && (
+      <a class="card-cover" href={postUrl} tabindex="-1" aria-hidden="true">
+        <img
+          src={coverImage}
+          alt=""
+          width="800"
+          height="450"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+    )
+  }
+  <div class="card-copy">
+    <div class="card-topline">
+      <span class="eyebrow"
+        >{data.draft ? "DRAFT · 로컬 초안" : "ENGINEERING NOTE"}</span
+      ><span class="card-arrow" aria-hidden="true">↗</span>
+    </div>
+    <a class="card-title" href={postUrl}
+      ><Heading transition:name={toTransitionName(id)}>{data.title}</Heading></a
+    >
+    <p class="card-description">{data.description}</p>
+    <div class="card-bottom">
+      <Datetime {...data} /><div class="card-tags">
+        {
+          data.tags
+            .slice(0, 2)
+            .map(tag => (
+              <a
+                href={getRelativeLocaleUrl(
+                  Astro.currentLocale ?? "ko",
+                  `tags/${slugifyStr(tag)}`
+                )}
+              >
+                #{tag}
+              </a>
+            ))
+        }
+      </div>
     </div>
   </div>
 </li>

@@ -2,8 +2,8 @@
 title: "Wuji Hand 2.1로 주전자 손잡이 잡기 · 파지 설계와 검증"
 description: "Wuji Hand 2.1의 네 손가락으로 500 g 주전자의 손잡이를 감싸고 들어 올릴 때의 접촉력, 기울기와 복귀 오차를 측정한 시뮬레이션 실험."
 pubDatetime: 2026-11-09T16:28:00+09:00
+coverImage: "/media/wuji-hand-kettle/pour.png"
 tags: ["물리 시뮬레이션", "Newton", "로보틱스", "Wuji Hand"]
-featured: false
 draft: false
 ---
 

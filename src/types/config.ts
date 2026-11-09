@@ -24,8 +24,6 @@ interface SiteConfig {
 interface PostsConfig {
   /** Posts per page on paginated listing pages */
   perPage?: number;
-  /** Posts shown on the index/home page */
-  perIndex?: number;
   /**
    * @deprecated No longer has any effect. Publishing is day-granular: a post is
    * listed from the start of its `pubDatetime` day in the site timezone, so

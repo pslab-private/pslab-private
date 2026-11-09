@@ -26,9 +26,6 @@ export default {
   pagination: { prev: "이전", next: "다음", page: "페이지" },
   home: {
     socialLinks: "더 만나보기",
-    featured: "먼저 읽어보세요",
-    recentPosts: "최근의 기록",
-    allPosts: "전체 글 보기",
   },
   footer: {
     copyright: "Copyright",

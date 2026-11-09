@@ -12,6 +12,14 @@
         { "title": "제목", "name": "title", "type": "string", "single": true },
         { "title": "요약", "name": "description", "type": "string" },
         {
+          "title": "대표 이미지 (한 장 직접 지정)",
+          "name": "coverImage",
+          "type": "image",
+          "multiple": false,
+          "isPreviewImage": true,
+          "description": "글의 핵심을 보여주는 이미지 한 장을 작성자가 선택합니다. 이미지가 없는 글만 비워둡니다."
+        },
+        {
           "title": "발행일",
           "name": "pubDatetime",
           "type": "datetime",
@@ -25,12 +33,6 @@
           "isModifiedDate": true
         },
         { "title": "태그", "name": "tags", "type": "tags" },
-        {
-          "title": "추천 글",
-          "name": "featured",
-          "type": "boolean",
-          "default": false
-        },
         { "title": "초안", "name": "draft", "type": "boolean", "default": true }
       ]
     }

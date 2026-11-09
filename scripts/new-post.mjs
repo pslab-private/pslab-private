@@ -13,9 +13,8 @@ try {
   const content = `---
 title: ${JSON.stringify(title)}
 description: "이 글에서 다룰 문제와 해결 방법을 한두 문장으로 소개합니다."
+coverImage: "" # 대표 이미지 한 장을 직접 지정하세요. 이미지가 없는 글만 비워둡니다.
 pubDatetime: ${new Date().toISOString()}
-tags: ["개발"]
-featured: false
 draft: true
 ---
 
@@ -38,7 +37,7 @@ draft: true
   await mkdir(directory, { recursive: true });
   await writeFile(target, content, { encoding: "utf8", flag: "wx" });
   console.log(
-    `초안 생성: ${relative(process.cwd(), target)}\n미리보기: /posts/${slug}/\n발행할 때 draft를 false로 변경하고 날짜를 확인하세요.`
+    `초안 생성: ${relative(process.cwd(), target)}\n미리보기: /posts/${slug}/\n대표 이미지는 coverImage에 한 장을 직접 지정하세요. 이미지가 없는 글은 비워둡니다.\n발행할 때 draft를 false로 변경하고 날짜를 확인하세요.`
   );
 } catch (error) {
   console.error(

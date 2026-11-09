@@ -6,6 +6,8 @@ AstroPaper 기반의 한국어 기술 블로그입니다. Pretendard, 반응형 
 - 저장소: [pslab-private.github.io](https://github.com/pslab-private/pslab-private.github.io)
 - 원본 테마: [AstroPaper](https://github.com/satnaing/astro-paper) (MIT, 7.1.0 기반)
 - 실행 환경: Node.js 24, pnpm 11.25.0
+- 회사 홈페이지: [PHYSICS SiM Lab](https://pslab.ai/). `public/brand/pslab-logo.png`와 파비콘은 회사 홈페이지의 원본 CI입니다.
+- 첫 기술 글: `src/content/posts/newton-ipc-implementation.md`. 제공된 HTML 문서의 본문·표·수식을 옮겼으며 영상 1개와 이미지 4개는 `public/media/newton-ipc/`에 보관합니다.
 
 ## 로컬에서 실행
 

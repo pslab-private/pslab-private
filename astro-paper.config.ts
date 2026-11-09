@@ -5,9 +5,9 @@ export default defineAstroPaperConfig({
     url: "https://pslab-private.github.io/",
     title: "PSL Tech",
     description:
-      "직접 만들고, 깊이 이해하고, 함께 나눕니다. 개발 과정에서 배운 기술과 문제 해결의 기록.",
-    author: "PSL Tech",
-    profile: "https://github.com/pslab-private",
+      "PHYSICS SiM Lab의 기술 블로그. 물리 시뮬레이션, 로봇 제어, Physical AI 학습 인프라의 구현과 검증을 기록합니다.",
+    author: "PHYSICS SiM Lab",
+    profile: "https://pslab.ai/",
     lang: "ko",
     timezone: "Asia/Seoul",
     dir: "ltr",
@@ -30,6 +30,7 @@ export default defineAstroPaperConfig({
       name: "github",
       url: "https://github.com/pslab-private/pslab-private.github.io",
     },
+    { name: "mail", url: "mailto:ask-psl@pslab.ai" },
   ],
   shareLinks: [],
 });

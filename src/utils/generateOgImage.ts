@@ -10,9 +10,12 @@ const fontData = Promise.all(
     )
   )
 );
+const logoData = readFile("public/brand/pslab-logo.png").then(
+  data => `data:image/png;base64,${data.toString("base64")}`
+);
 
 export async function generateOgImage(title: string, description: string) {
-  const [regular, bold] = await fontData;
+  const [[regular, bold], logo] = await Promise.all([fontData, logoData]);
   const text = (children: string, style: Record<string, string | number>) => ({
     type: "div",
     props: {
@@ -35,19 +38,21 @@ export async function generateOgImage(title: string, description: string) {
           width: 1200,
           height: 630,
           boxSizing: "border-box",
-          background: "#fafbf9",
-          color: "#202b2b",
+          background: "#fafbfc",
+          color: "#202c3c",
           fontFamily: "Pretendard",
-          borderTop: "12px solid #087f73",
+          borderTop: "12px solid #284c82",
         },
         children: [
-          text("PSL TECH  /  ENGINEERING NOTES", {
-            top: 64,
-            fontSize: 23,
-            color: "#087f73",
-            fontWeight: 700,
-            letterSpacing: "2px",
-          }),
+          {
+            type: "img",
+            props: {
+              src: logo,
+              width: 300,
+              height: 68,
+              style: { position: "absolute", top: 52, left: 72 },
+            },
+          },
           text(title, {
             top: 166,
             fontSize: title.length > 32 ? 50 : 60,
@@ -59,15 +64,15 @@ export async function generateOgImage(title: string, description: string) {
           text(description, {
             top: 418,
             fontSize: 25,
-            color: "#64716c",
+            color: "#627087",
             lineHeight: 1.6,
             maxHeight: 85,
             overflow: "hidden",
           }),
-          text("배우고, 만들고, 기록합니다.   ↗", {
+          text("PSL TECH  ·  PHYSICAL AI ENGINEERING", {
             top: 550,
             fontSize: 21,
-            color: "#087f73",
+            color: "#284c82",
           }),
         ],
       },

@@ -25,7 +25,7 @@ const structuredData = {
   ...(modDatetime && { dateModified: modDatetime.toISOString() }),
   author: [
     {
-      "@type": "Person",
+      "@type": "Organization",
       name: site.author,
       ...(site.profile && { url: site.profile }),
     },

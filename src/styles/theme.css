@@ -14,26 +14,26 @@
 :root,
 [data-theme="light"] {
   color-scheme: light;
-  --background: #fafbf9;
-  --foreground: #202b2b;
-  --accent: #087f73;
+  --background: #fafbfc;
+  --foreground: #202c3c;
+  --accent: #284c82;
   --accent-foreground: #ffffff;
-  --muted: #edf1ee;
-  --muted-foreground: #64716c;
-  --border: #dce4de;
+  --muted: #edf1f6;
+  --muted-foreground: #627087;
+  --border: #dce3ed;
   --surface: #ffffff;
-  --surface-accent: #e8f3eb;
+  --surface-accent: #eef3fa;
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --background: #131b1a;
-  --foreground: #e5ede8;
-  --accent: #83d7bb;
-  --accent-foreground: #13251d;
-  --muted: #23332d;
-  --muted-foreground: #a0b4a8;
-  --border: #30443b;
-  --surface: #1b2722;
-  --surface-accent: #20382d;
+  --background: #141b29;
+  --foreground: #e6ebf3;
+  --accent: #9bbdf0;
+  --accent-foreground: #14233b;
+  --muted: #25344b;
+  --muted-foreground: #a8b7ce;
+  --border: #303d52;
+  --surface: #1c2638;
+  --surface-accent: #22334d;
 }

@@ -15,15 +15,26 @@ const locale = Astro.currentLocale ?? config.site.lang;
   {...attrs}
 >
   <div>
-    <a class="footer-brand" href={getRelativeLocaleUrl(locale, "")}
-      >PSL Tech<span class="status-dot" aria-hidden="true"></span></a
-    ><p>배우고, 만들고, 기록합니다.</p>
+    <a
+      class="footer-brand brand-logo-frame"
+      href="https://pslab.ai/"
+      aria-label="PHYSICS SiM Lab 회사 홈페이지"
+      ><img
+        class="company-logo"
+        src={getAssetPath("brand/pslab-logo.png")}
+        alt="PHYSICS SiM Lab"
+        width="160"
+        height="36"
+      /></a
+    >
+    <p>Physical AI를 위한 시뮬레이션과 기술 기록.</p>
   </div>
   <div class="footer-links">
-    <a href={getAssetPath("rss.xml")}>RSS</a><a
-      href={getRelativeLocaleUrl(locale, "archives")}>아카이브</a
-    ><a href="https://github.com/pslab-private/pslab-private.github.io"
+    <a href="https://pslab.ai/">회사 홈페이지 ↗</a><a
+      href={getAssetPath("rss.xml")}>RSS</a
+    ><a href={getRelativeLocaleUrl(locale, "archives")}>아카이브</a><a
+      href="https://github.com/pslab-private/pslab-private.github.io"
       >GitHub ↗</a
-    ><span>© {new Date().getFullYear()} PSL Tech</span>
+    ><span>© {new Date().getFullYear()} Physics Sim Lab, inc.</span>
   </div>
 </footer>

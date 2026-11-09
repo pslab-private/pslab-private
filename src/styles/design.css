@@ -547,7 +547,7 @@ main > p.italic {
 .app-prose figure {
   margin: 1.5em 0;
 }
-.app-prose figure :is(img, video) {
+.app-prose figure :is(img, video, svg) {
   display: block;
   max-width: 100%;
   height: auto;
@@ -558,6 +558,12 @@ main > p.italic {
   border: 1px solid var(--border);
   border-radius: 10px;
   background: #101725;
+}
+.app-prose video[width="1280"] {
+  width: 100%;
+}
+.app-prose video.portrait {
+  width: min(100%, 640px);
 }
 .app-prose figcaption {
   margin-top: 0.7em;

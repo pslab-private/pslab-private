@@ -106,7 +106,15 @@
     }
 
     details:not(.callout) {
-      @apply text-foreground inline-block cursor-pointer select-none [&_p]:hidden [&_ul]:my-0!;
+      @apply text-foreground border-border my-6 block min-w-0 rounded-lg border px-4 py-3;
+    }
+
+    details:not(.callout) > summary {
+      @apply text-accent cursor-pointer font-medium select-none;
+    }
+
+    details:not(.callout) pre {
+      max-height: 36rem;
     }
 
     summary {

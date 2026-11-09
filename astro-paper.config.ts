@@ -2,7 +2,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    url: "https://pslab-private.github.io/psl-tech/",
+    url: "https://pslab-private.github.io/",
     title: "PSL Tech",
     description:
       "직접 만들고, 깊이 이해하고, 함께 나눕니다. 개발 과정에서 배운 기술과 문제 해결의 기록.",
@@ -20,13 +20,16 @@ export default defineAstroPaperConfig({
     showBackButton: true,
     editPost: {
       enabled: true,
-      url: "https://github.com/pslab-private/psl-tech/edit/main/",
+      url: "https://github.com/pslab-private/pslab-private.github.io/edit/main/",
     },
     search: "pagefind",
     toc: true,
   },
   socials: [
-    { name: "github", url: "https://github.com/pslab-private/psl-tech" },
+    {
+      name: "github",
+      url: "https://github.com/pslab-private/pslab-private.github.io",
+    },
   ],
   shareLinks: [],
 });

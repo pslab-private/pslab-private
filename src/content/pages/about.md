@@ -29,6 +29,6 @@ PSL Tech는 개발 과정에서 마주한 질문과 그 답을 찾아가는 과�
 
 ## 더 만나보기
 
-[GitHub 저장소에서 코드와 기록 살펴보기](https://github.com/pslab-private/psl-tech)
+[GitHub 저장소에서 코드와 기록 살펴보기](https://github.com/pslab-private/pslab-private.github.io)
 
 새 글은 사이트 하단의 **RSS**를 통해 구독할 수 있습니다.

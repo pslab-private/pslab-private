@@ -19,7 +19,7 @@ import config from "./astro-paper.config";
 
 export default defineConfig({
   site: config.site.url,
-  base: "/psl-tech",
+  base: "/",
   trailingSlash: "always",
   integrations: [
     mdx(),

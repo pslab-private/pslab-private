@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile, readdir, stat } from "node:fs/promises";
 import { join } from "node:path";
 
-const base = "/psl-tech/";
+const base = "/";
 const site = "https://pslab-private.github.io";
 const walk = async directory =>
   (
@@ -21,6 +21,7 @@ for (const path of files.filter(file => file.endsWith(".html"))) {
   assert.match(html, /<html[^>]*lang="ko"/, path);
   assert.ok(!html.includes("발행되지 않는 초안 예시"), `초안 노출: ${path}`);
   assert.ok(!html.includes("astro-paper.pages.dev"), `템플릿 주소: ${path}`);
+  assert.ok(!html.includes("/psl-tech/"), `이전 배포 경로: ${path}`);
   for (const [, value] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     if (value.startsWith("//")) continue;
     const url = new URL(value, `${site}${base}`);
@@ -41,6 +42,10 @@ for (const name of ["rss.xml", "sitemap-0.xml"]) {
   const xml = await readFile(join("dist", name), "utf8");
   assert.ok(!xml.includes("example-draft"), `${name}에 초안 노출`);
   assert.ok(xml.includes(`${site}${base}`), `${name} 주소 오류`);
+  assert.ok(
+    !xml.includes(`${site}/psl-tech/`),
+    `${name}에 이전 배포 경로 포함`
+  );
 }
 assert.ok(
   !files.some(file => /example-draft/.test(file)),

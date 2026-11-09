@@ -38,7 +38,7 @@ draft: true
   await mkdir(directory, { recursive: true });
   await writeFile(target, content, { encoding: "utf8", flag: "wx" });
   console.log(
-    `초안 생성: ${relative(process.cwd(), target)}\n미리보기: /psl-tech/posts/${slug}/\n발행할 때 draft를 false로 변경하고 날짜를 확인하세요.`
+    `초안 생성: ${relative(process.cwd(), target)}\n미리보기: /posts/${slug}/\n발행할 때 draft를 false로 변경하고 날짜를 확인하세요.`
   );
 } catch (error) {
   console.error(

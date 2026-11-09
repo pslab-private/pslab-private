@@ -7,7 +7,7 @@ pnpm new-post debugging-a-timeout "타임아웃의 원인을 찾는 과정"
 pnpm dev
 ```
 
-`src/content/posts/debugging-a-timeout.md`를 편집하고 http://localhost:4321/psl-tech/posts/debugging-a-timeout/ 에서 확인합니다. 초안은 개발 모드에서만 표시됩니다.
+`src/content/posts/debugging-a-timeout.md`를 편집하고 http://localhost:4321/posts/debugging-a-timeout/ 에서 확인합니다. 초안은 개발 모드에서만 표시됩니다.
 
 ## 글의 기본 정보
 
@@ -78,7 +78,7 @@ console.log(message);
 
 위 경로는 `src/content/posts/my-first-note.md` 기준입니다. 하위 폴더에 글을 넣으면 상대 경로도 함께 조정하세요. 이미지 설명에는 무엇을 보여주는지 적습니다.
 
-`public/`의 이미지는 최적화 없이 그대로 배포됩니다. `/psl-tech/` 하위 경로가 있으므로 본문에서 `/images/...` 같은 루트 절대 경로를 사용하면 주소가 깨질 수 있습니다. 글별 공유 이미지는 한글 제목과 요약으로 자동 생성되므로 대표 이미지를 매번 만들 필요가 없습니다.
+`public/`의 이미지는 최적화 없이 그대로 배포됩니다. 예를 들어 `public/images/result.png`는 본문에서 `/images/result.png`로 연결합니다. 이 사이트는 도메인 루트(`/`)에 배포되므로 이미지와 글 주소에 저장소 이름을 붙이지 않습니다. 글별 공유 이미지는 한글 제목과 요약으로 자동 생성되므로 대표 이미지를 매번 만들 필요가 없습니다.
 
 ## VS Code에서 버튼과 입력란으로 관리하기
 
@@ -99,9 +99,9 @@ console.log(message);
 파일명은 글 주소가 됩니다. 발행한 글의 파일명이나 폴더를 바꾸면 기존 링크도 바뀌므로 가능한 유지하세요.
 
 ```text
-src/content/posts/my-note.md           → /psl-tech/posts/my-note/
-src/content/posts/web/my-note.md       → /psl-tech/posts/web/my-note/
-src/content/posts/_2026/my-note.md     → /psl-tech/posts/my-note/
+src/content/posts/my-note.md           → /posts/my-note/
+src/content/posts/web/my-note.md       → /posts/web/my-note/
+src/content/posts/_2026/my-note.md     → /posts/my-note/
 ```
 
 같은 최종 주소를 가진 파일을 두 개 만들지 않도록 주의하세요. 관리 편의를 위해 처음에는 글을 `src/content/posts/`에 평평하게 두고 태그로 분류하는 것을 권합니다.

@@ -35,7 +35,7 @@
       ]
     }
   ],
-  "frontMatter.preview.host": "http://localhost:4321/psl-tech",
+  "frontMatter.preview.host": "http://localhost:4321",
   "frontMatter.preview.pathName": "/posts/{{pathToken.relPath}}/",
   "frontMatter.preview.trailingSlash": true
 }

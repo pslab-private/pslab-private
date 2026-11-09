@@ -1,4 +1,6 @@
 ---
+import { getLocale } from "@/i18n/locale";
+import type { GetStaticPathsOptions } from "astro";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import PostLayout from "@/layouts/PostLayout.astro";
 import Header from "@/components/Header.astro";
@@ -17,9 +19,9 @@ import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import PostToc from "./_components/PostToc.astro";
 import config from "@/config";
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ routePattern }: GetStaticPathsOptions) {
   const posts = await getCollection("posts");
-  const sortedPosts = getSortedPosts(posts);
+  const sortedPosts = getSortedPosts(posts, getLocale(routePattern));
 
   return sortedPosts.map((post, index) => ({
     params: { slug: getPostSlug(post.id, post.filePath) },
@@ -233,7 +235,8 @@ const ogImage = ogImageUrl
   addHeadingLinks();
 
   function attachCopyButtons() {
-    const copyButtonLabel = "복사";
+    const english = document.documentElement.lang === "en";
+    const copyButtonLabel = english ? "Copy" : "복사";
     const codeBlocks = Array.from(document.querySelectorAll("pre"));
 
     for (const codeBlock of codeBlocks) {
@@ -268,7 +271,7 @@ const ogImage = ogImageUrl
 
       await navigator.clipboard.writeText(text ?? "");
 
-      button.innerText = "복사 완료";
+      button.innerText = english ? "Copied" : "복사 완료";
 
       setTimeout(() => {
         button.innerText = copyButtonLabel;
@@ -279,6 +282,9 @@ const ogImage = ogImageUrl
 
   /** Accessible image lightbox for article images. */
   function initLightbox() {
+    const english = document.documentElement.lang === "en";
+    const enlargeLabel = english ? "Enlarge image" : "이미지 확대";
+    const previewLabel = english ? "Image preview" : "이미지 미리보기";
     const article = document.getElementById("article");
     if (!article) return;
 
@@ -300,7 +306,7 @@ const ogImage = ogImageUrl
         image.setAttribute("aria-haspopup", "dialog");
         image.setAttribute(
           "aria-label",
-          image.alt ? `이미지 확대: ${image.alt}` : "이미지 확대"
+          image.alt ? `${enlargeLabel}: ${image.alt}` : enlargeLabel
         );
       }
     });
@@ -314,14 +320,17 @@ const ogImage = ogImageUrl
       overlay.setAttribute("aria-modal", "true");
       overlay.setAttribute(
         "aria-label",
-        alt ? `이미지 미리보기: ${alt}` : "이미지 미리보기"
+        alt ? `${previewLabel}: ${alt}` : previewLabel
       );
       overlay.className =
         "fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-200 motion-reduce:transition-none";
 
       const closeButton = document.createElement("button");
       closeButton.type = "button";
-      closeButton.setAttribute("aria-label", "이미지 미리보기 닫기");
+      closeButton.setAttribute(
+        "aria-label",
+        english ? "Close image preview" : "이미지 미리보기 닫기"
+      );
       closeButton.className =
         "absolute end-4 top-4 z-1 flex size-11 items-center justify-center rounded bg-black/50 text-3xl leading-none text-white";
       closeButton.innerHTML = "&#10005;";

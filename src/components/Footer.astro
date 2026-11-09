@@ -1,9 +1,8 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
 import { getAssetPath } from "@/utils/withBase";
-import config from "@/config";
+import { useTranslations } from "@/i18n";
 const { class: className, noMarginTop = false, ...attrs } = Astro.props;
-const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(Astro.currentLocale ?? "ko");
 ---
 
 <footer
@@ -18,7 +17,7 @@ const locale = Astro.currentLocale ?? config.site.lang;
     <a
       class="footer-brand brand-logo-frame"
       href="https://pslab.ai/"
-      aria-label="PHYSICS SiM Lab 회사 홈페이지"
+      aria-label={`PHYSICS SiM Lab ${t.site.companyWebsite}`}
       ><img
         class="company-logo"
         src={getAssetPath("brand/pslab-logo.png")}
@@ -27,14 +26,11 @@ const locale = Astro.currentLocale ?? config.site.lang;
         height="36"
       /></a
     >
-    <p>Physical AI를 위한 시뮬레이션과 기술 기록.</p>
+    <p>{t.site.footerDescription}</p>
   </div>
   <div class="footer-links">
-    <a href="https://pslab.ai/">회사 홈페이지 ↗</a><a
-      href={getAssetPath("rss.xml")}>RSS</a
-    ><a href={getRelativeLocaleUrl(locale, "archives")}>아카이브</a><a
-      href="https://github.com/pslab-private/pslab-private.github.io"
-      >GitHub ↗</a
-    ><span>© {new Date().getFullYear()} Physics Sim Lab, inc.</span>
+    <a href="https://pslab.ai/">{t.site.companyWebsite} ↗</a>
+    <a href="mailto:ask-psl@pslab.ai">{t.site.emailContact}</a>
+    <span>© {new Date().getFullYear()} Physics Sim Lab, inc.</span>
   </div>
 </footer>

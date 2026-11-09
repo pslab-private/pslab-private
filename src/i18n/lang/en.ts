@@ -1,6 +1,22 @@
 import type { UIStrings } from "../types";
 
 export default {
+  site: {
+    description:
+      "The PHYSICS SiM Lab engineering blog: implementation and validation of physics simulation, robot control, and training infrastructure for Physical AI.",
+    heroTitle: "Building worlds where robots learn.",
+    heroDescription:
+      "We build training infrastructure for Physical AI with physics-based simulation and synthetic data.",
+    companySummary:
+      "Accurate physics, robot control, and verifiable data. We share what we learn through implementation and experiments.",
+    companyWebsite: "Company website",
+    footerDescription: "Simulation and engineering notes for Physical AI.",
+    emailContact: "Contact us by email",
+    mainMenu: "Main menu",
+    language: "Select language",
+    breadcrumb: "Breadcrumb",
+    pagination: "Pagination",
+  },
   nav: {
     home: "Home",
     posts: "Posts",

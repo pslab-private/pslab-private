@@ -35,7 +35,6 @@ const t = useTranslations(locale);
   <Main pageTitle={t.pages.searchTitle} pageDesc={t.pages.searchDesc}>
     <div
       id="pagefind-search"
-      transition:persist
       data-backurl={backUrl}
       data-bundle-path={pagefindBundlePath}
     >
@@ -55,6 +54,7 @@ const t = useTranslations(locale);
     const bundlePath = pageFindSearch?.dataset?.bundlePath;
     if (!bundlePath) return;
 
+    const english = document.documentElement.lang === "en";
     const params = new URLSearchParams(window.location.search);
 
     const onIdle = window.requestIdleCallback || (cb => setTimeout(cb, 1));
@@ -67,7 +67,7 @@ const t = useTranslations(locale);
       if (import.meta.env.DEV) {
         pageFindSearch.innerHTML = `
             <div class="bg-muted/75 rounded p-4 space-y-4 mb-4">
-              <p><strong>개발 모드 안내</strong> 검색 결과는 마지막 빌드 기준입니다. 새 글을 반영하려면 한 번 빌드해주세요.</p>
+              <p>${english ? "Development preview: search uses the latest build. Rebuild to include new posts." : "개발 모드 안내: 검색 결과는 마지막 빌드 기준입니다. 새 글을 반영하려면 한 번 빌드해주세요."}</p>
               <code class="block bg-black text-white px-2 py-1 rounded">pnpm run build</code>
             </div>
           `;
@@ -79,16 +79,18 @@ const t = useTranslations(locale);
         bundlePath,
         showImages: false,
         showSubResults: true,
-        translations: {
-          placeholder: "어떤 기술이 궁금하신가요?",
-          clear_search: "지우기",
-          load_more: "결과 더 보기",
-          search_label: "글 검색",
-          searching: "검색하고 있습니다…",
-          zero_results: "“[SEARCH_TERM]” 검색 결과가 없습니다.",
-          one_result: "“[SEARCH_TERM]” 검색 결과 1개",
-          many_results: "“[SEARCH_TERM]” 검색 결과 [COUNT]개",
-        },
+        translations: english
+          ? undefined
+          : {
+              placeholder: "어떤 기술이 궁금하신가요?",
+              clear_search: "지우기",
+              load_more: "결과 더 보기",
+              search_label: "글 검색",
+              searching: "검색하고 있습니다…",
+              zero_results: "“[SEARCH_TERM]” 검색 결과가 없습니다.",
+              one_result: "“[SEARCH_TERM]” 검색 결과 1개",
+              many_results: "“[SEARCH_TERM]” 검색 결과 [COUNT]개",
+            },
         processTerm: function (term: string) {
           params.set("q", term); // Update the `q` parameter in the URL
           history.replaceState(history.state, "", "?" + params.toString()); // Push the new URL without reloading
@@ -121,15 +123,7 @@ const t = useTranslations(locale);
     });
   }
 
-  document.addEventListener("astro:after-swap", () => {
-    const pagefindSearch = document.querySelector("#pagefind-search");
-
-    // if pagefind search form already exists, don't initialize search component
-    if (pagefindSearch && pagefindSearch.querySelector("form")) return;
-
-    initSearch();
-  });
-  initSearch();
+  document.addEventListener("astro:page-load", initSearch);
 </script>
 
 <style is:global>

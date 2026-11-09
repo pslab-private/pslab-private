@@ -7,11 +7,25 @@ pnpm new-post debugging-a-timeout "타임아웃의 원인을 찾는 과정"
 pnpm dev
 ```
 
-`src/content/posts/debugging-a-timeout.md`를 편집하고 http://localhost:4321/posts/debugging-a-timeout/ 에서 확인합니다. 초안은 개발 모드에서만 표시됩니다.
+한국어 `src/content/posts/debugging-a-timeout.md`와 영어 `src/content/posts/en/debugging-a-timeout.md` 초안이 함께 생성됩니다. 두 파일을 편집하고 http://localhost:4321/posts/debugging-a-timeout/ 와 http://localhost:4321/en/posts/debugging-a-timeout/ 에서 확인합니다. 초안은 개발 모드에서만 표시됩니다.
 
 매번 할 일은 **제목·요약·본문 작성 → 대표 이미지 한 장 지정 → 미리보기 → `draft: false`로 바꾸고 `main`에 반영**입니다. 검증과 배포는 GitHub Actions가 자동으로 실행합니다.
 
 홈의 전체 글 목록, 검색, RSS에는 자동으로 반영됩니다. 추천 여부나 노출 위치를 따로 정할 필요가 없습니다. 홈은 글 개수 제한 없이 모든 글을 발행일(수정일이 있으면 수정일) 기준 최신순으로 보여줍니다.
+
+## 한국어·영어 함께 작성하기
+
+새 글은 같은 파일명으로 한국어와 영어 마크다운을 함께 완성합니다. 영어본은 `src/content/posts/en/`에 두며 제목·요약·본문·표·캡션·대체 텍스트까지 번역합니다. 생성 명령은 영어 초안의 틀만 만들므로 에이전트가 글 내용에 맞는 영어 제목과 본문을 직접 작성해야 합니다. 영어 제목을 미리 지정하려면 세 번째 인수를 사용할 수 있습니다.
+
+```sh
+pnpm new-post debugging-a-timeout "타임아웃의 원인을 찾는 과정" "Tracing a Timeout"
+```
+
+두 파일의 `pubDatetime`, `modDatetime`, `tags`, `coverImage`, `draft`를 맞춥니다. 태그는 같은 식별자를 사용하며 영어 표시명만 `src/i18n/locale.ts`에서 관리합니다. 수치·단위·수식·공개 코드·출처와 실험의 한계도 일치해야 합니다. 본문 내 다른 글 링크는 영어본에서 `/en/posts/.../`로 연결하고 미디어는 같은 `/media/...` 파일을 재사용합니다. `src/assets/` 이미지를 상대 경로로 참조하면 영어 파일의 폴더 깊이가 한 단계 더 깊다는 점에 주의합니다.
+
+글 수정 시 두 버전을 함께 갱신하고 완성한 뒤 둘 다 `draft: false`로 바꿉니다. 한국어·영어 글은 각각의 목록·검색·RSS(`/rss.xml`, `/en/rss.xml`)에 표시됩니다.
+
+홈(`/`)에서는 저장된 언어 선택을 우선 사용하고, 없으면 브라우저 선호 언어 중 한국어·영어를 순서대로 확인합니다. 지원하는 언어가 없으면 영어를 표시합니다. 상단의 **한국어 / English**로 바꾸면 선택을 기억합니다. 개별 글이나 영어 주소를 직접 열면 해당 주소의 언어가 유지됩니다. 자바스크립트나 브라우저 저장소를 사용할 수 없어도 언어 링크는 작동합니다.
 
 ## 글의 기본 정보
 
@@ -108,7 +122,7 @@ coverImage: "/media/my-note/result.png"
 
 위 경로는 `src/content/posts/my-first-note.md` 기준입니다. 하위 폴더에 글을 넣으면 상대 경로도 함께 조정하세요. 이미지 설명에는 무엇을 보여주는지 적습니다.
 
-`public/`의 이미지는 최적화 없이 그대로 배포됩니다. 예를 들어 `public/images/result.png`는 본문에서 `/images/result.png`로 연결합니다. 이 사이트는 도메인 루트(`/`)에 배포되므로 이미지와 글 주소에 저장소 이름을 붙이지 않습니다. 공유용 이미지는 한글 제목과 요약으로 자동 생성됩니다. 목록의 대표 이미지는 작성자가 본문 이미지 등에서 한 장을 직접 지정합니다.
+`public/`의 이미지는 최적화 없이 그대로 배포됩니다. 예를 들어 `public/images/result.png`는 본문에서 `/images/result.png`로 연결합니다. 이 사이트는 도메인 루트(`/`)에 배포되므로 이미지와 글 주소에 저장소 이름을 붙이지 않습니다. 공유용 이미지는 각 언어의 제목과 요약으로 자동 생성됩니다. 목록의 대표 이미지는 작성자가 본문 이미지 등에서 한 장을 직접 지정합니다.
 
 ## VS Code에서 버튼과 입력란으로 관리하기
 

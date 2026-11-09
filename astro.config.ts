@@ -28,9 +28,36 @@ export default defineConfig({
         config.features?.showArchives !== false || !/\/archives\/?$/.test(page),
     }),
     inlineTocDeprecation(),
+    {
+      name: "english-pages",
+      hooks: {
+        "astro:config:setup": ({ injectRoute }) => {
+          // Both languages share templates; content is selected by routePattern.
+          for (const [pattern, entrypoint] of [
+            ["/", "index.astro"],
+            ["/about", "about.astro"],
+            ["/search", "search.astro"],
+            ["/404", "404.astro"],
+            ["/archives", "archives/index.astro"],
+            ["/tags", "tags/index.astro"],
+            ["/tags/[tag]/[...page]", "tags/[tag]/[...page].astro"],
+            ["/posts/[...page]", "posts/[...page].astro"],
+            ["/posts/[...slug]", "posts/[...slug]/index.astro"],
+            ["/posts/[...slug]/index.png", "posts/[...slug]/index.png.ts"],
+            ["/rss.xml", "rss.xml.ts"],
+            ["/og.png", "og.png.ts"],
+          ]) {
+            injectRoute({
+              pattern: `/en${pattern}`,
+              entrypoint: `./src/pages/${entrypoint}`,
+            });
+          }
+        },
+      },
+    },
   ],
   i18n: {
-    locales: ["ko"],
+    locales: ["ko", "en"],
     defaultLocale: "ko",
     routing: {
       prefixDefaultLocale: false,

@@ -6,7 +6,9 @@ import config from "@/config";
 function getPostPathSegments(filePath: string | undefined): string[] {
   return (
     filePath
-      ?.replace(BLOG_PATH, "")
+      ?.replaceAll("\\", "/")
+      .replace(BLOG_PATH, "")
+      .replace(/^\/en\//, "/")
       .split("/")
       .filter(path => path !== "")
       .filter(path => !path.startsWith("_"))

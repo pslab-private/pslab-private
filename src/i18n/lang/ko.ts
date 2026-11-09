@@ -1,6 +1,22 @@
 import type { UIStrings } from "../types";
 
 export default {
+  site: {
+    description:
+      "PHYSICS SiM Lab의 기술 블로그. 물리 시뮬레이션, 로봇 제어, Physical AI 학습 인프라의 구현과 검증을 기록합니다.",
+    heroTitle: "로봇이 배울 세계를 만듭니다.",
+    heroDescription:
+      "물리 기반 시뮬레이션과 합성 데이터로 Physical AI의 학습 인프라를 구축합니다.",
+    companySummary:
+      "정확한 물리, 로봇 제어, 검증 가능한 데이터. 구현 과정에서 얻은 지식과 실험을 공유합니다.",
+    companyWebsite: "회사 홈페이지",
+    footerDescription: "Physical AI를 위한 시뮬레이션과 기술 기록.",
+    emailContact: "이메일 문의하기",
+    mainMenu: "메인 메뉴",
+    language: "언어 선택",
+    breadcrumb: "현재 위치",
+    pagination: "페이지 이동",
+  },
   nav: {
     home: "홈",
     posts: "전체 글",

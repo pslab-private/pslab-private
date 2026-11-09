@@ -1,5 +1,7 @@
 import type { CollectionEntry } from "astro:content";
 import { postFilter } from "./postFilter";
+import { getContentLocale } from "@/i18n/locale";
+import config from "@/config";
 
 /**
  * Returns posts that are eligible to be shown to users, sorted by “last updated”
@@ -7,8 +9,12 @@ import { postFilter } from "./postFilter";
  *
  * Note: filtering respects drafts and scheduled posts via `postFilter()`.
  */
-export function getSortedPosts(posts: CollectionEntry<"posts">[]) {
+export function getSortedPosts(
+  posts: CollectionEntry<"posts">[],
+  locale: string = config.site.lang
+) {
   return posts
+    .filter(post => getContentLocale(post.id) === locale)
     .filter(postFilter)
     .sort(
       (a, b) =>

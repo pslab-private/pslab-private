@@ -20,7 +20,7 @@ const t = useTranslations(Astro.currentLocale);
     <nav
       class="mt-auto mb-8 flex justify-center gap-4"
       role="navigation"
-      aria-label="페이지 이동"
+      aria-label={t.site.pagination}
     >
       <LinkButton
         disabled={!page.url.prev}

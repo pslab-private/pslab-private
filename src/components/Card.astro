@@ -1,4 +1,5 @@
 ---
+import { getTagName } from "@/i18n/locale";
 import type { CollectionEntry } from "astro:content";
 import { getPostUrl } from "@/utils/getPostPaths";
 import { toTransitionName } from "@/utils/toTransitionName";
@@ -31,7 +32,13 @@ const coverImage = data.coverImage;
   <div class="card-copy">
     <div class="card-topline">
       <span class="eyebrow"
-        >{data.draft ? "DRAFT · 로컬 초안" : "ENGINEERING NOTE"}</span
+        >{
+          data.draft
+            ? Astro.currentLocale === "en"
+              ? "DRAFT · LOCAL PREVIEW"
+              : "DRAFT · 로컬 초안"
+            : "ENGINEERING NOTE"
+        }</span
       ><span class="card-arrow" aria-hidden="true">↗</span>
     </div>
     <a class="card-title" href={postUrl}
@@ -50,7 +57,7 @@ const coverImage = data.coverImage;
                   `tags/${slugifyStr(tag)}`
                 )}
               >
-                #{tag}
+                #{getTagName(tag, Astro.currentLocale ?? "ko")}
               </a>
             ))
         }

@@ -1,4 +1,17 @@
 export interface UIStrings {
+  site: {
+    description: string;
+    heroTitle: string;
+    heroDescription: string;
+    companySummary: string;
+    companyWebsite: string;
+    footerDescription: string;
+    emailContact: string;
+    mainMenu: string;
+    language: string;
+    breadcrumb: string;
+    pagination: string;
+  };
   nav: {
     home: string;
     posts: string;

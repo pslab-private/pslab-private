@@ -24,4 +24,4 @@ PHYSICS SiM Lab은 물리 기반 시뮬레이션과 합성 데이터로 **Physic
 - [이메일 문의: ask-psl@pslab.ai](mailto:ask-psl@pslab.ai)
 - [기술 블로그 GitHub](https://github.com/pslab-private/pslab-private.github.io)
 
-회사 소개는 [공식 홈페이지](https://pslab.ai/)를 바탕으로 정리했습니다. 새로운 기술 글은 사이트 하단의 RSS로 구독할 수 있습니다.
+회사 소개는 [공식 홈페이지](https://pslab.ai/)를 바탕으로 정리했습니다. 새로운 기술 글은 [RSS](/rss.xml)로 구독할 수 있습니다.

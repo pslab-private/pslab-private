@@ -1,4 +1,6 @@
 ---
+import { getTagName } from "@/i18n/locale";
+import { getLocale } from "@/i18n/locale";
 import { getCollection } from "astro:content";
 import type { GetStaticPathsOptions } from "astro";
 import Layout from "@/layouts/Layout.astro";
@@ -14,13 +16,20 @@ import { slugifyAll } from "@/utils/slugify";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
-export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const posts = await getCollection("posts", ({ data }) => !data.draft);
+export async function getStaticPaths({
+  paginate,
+  routePattern,
+}: GetStaticPathsOptions) {
+  const posts = getSortedPosts(
+    await getCollection("posts"),
+    getLocale(routePattern)
+  );
   const tags = getUniqueTags(posts);
 
   return tags.flatMap(({ tag, tagName }) => {
     const tagPosts = getSortedPosts(
-      posts.filter(({ data }) => slugifyAll(data.tags).includes(tag))
+      posts.filter(({ data }) => slugifyAll(data.tags).includes(tag)),
+      getLocale(routePattern)
     );
 
     return paginate(tagPosts, {
@@ -31,7 +40,8 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   });
 }
 
-const { page, tagName } = Astro.props;
+const { page, tagName: tagId } = Astro.props;
+const tagName = getTagName(tagId, Astro.currentLocale ?? config.site.lang);
 
 const locale = Astro.currentLocale ?? config.site.lang;
 const t = useTranslations(locale);

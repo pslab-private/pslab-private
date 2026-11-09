@@ -1,4 +1,5 @@
 ---
+import { getTagName } from "@/i18n/locale";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import IconHash from "@/assets/icons/IconHash.svg";
 import config from "@/config";
@@ -34,6 +35,6 @@ const locale = Astro.currentLocale ?? config.site.lang;
         { "size-4": size === "sm" },
       ]}
     />
-    {tagName}
+    {getTagName(tagName, locale)}
   </a>
 </li>

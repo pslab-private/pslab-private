@@ -3,6 +3,8 @@ import { ClientRouter } from "astro:transitions";
 import { resolveDefaultOgImagePath } from "@/utils/resolveDefaultOgImagePath";
 import { getAssetPath } from "@/utils/withBase";
 import config from "@/config";
+import { useTranslations } from "@/i18n";
+import { localizePath } from "@/i18n/locale";
 import "@/styles/global.css";
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 
@@ -14,16 +16,21 @@ type Props = {
 };
 
 const { site } = config;
+const locale = Astro.currentLocale ?? site.lang;
+const t = useTranslations(locale);
 
 const {
   title = site.title,
-  description = site.description,
-  ogImage = resolveDefaultOgImagePath(config),
-  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  description = t.site.description,
+  ogImage = locale === "en" ? "/en/og.png" : resolveDefaultOgImagePath(config),
+  canonicalURL = new URL(
+    Astro.url.pathname === "/404/" ? "/404.html" : Astro.url.pathname,
+    Astro.site
+  ).href,
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
-const rssHref = getAssetPath("rss.xml");
+const rssHref = locale === "en" ? "/en/rss.xml" : getAssetPath("rss.xml");
 ---
 
 <!doctype html>
@@ -43,6 +50,32 @@ const rssHref = getAssetPath("rss.xml");
     />
     <link rel="icon" href={getAssetPath("favicon.ico")} />
     <link rel="canonical" href={canonicalURL} />
+    <link
+      rel="alternate"
+      hreflang="ko"
+      href={new URL(
+        localizePath(
+          /\/404(?:\.html|\/)?$/.test(Astro.url.pathname)
+            ? "/"
+            : Astro.url.pathname,
+          "ko"
+        ),
+        Astro.site
+      )}
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={new URL(
+        localizePath(
+          /\/404(?:\.html|\/)?$/.test(Astro.url.pathname)
+            ? "/"
+            : Astro.url.pathname,
+          "en"
+        ),
+        Astro.site
+      )}
+    />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary meta -->
@@ -117,6 +150,7 @@ const rssHref = getAssetPath("rss.xml");
     <slot />
     <script>
       import "@/scripts/theme";
+      import "@/scripts/language";
     </script>
   </body>
 </html>

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    { "title": "기술 글", "path": "[[workspace]]/src/content/posts" }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "fields": [
+        { "title": "제목", "name": "title", "type": "string", "single": true },
+        { "title": "요약", "name": "description", "type": "string" },
+        {
+          "title": "발행일",
+          "name": "pubDatetime",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "수정일",
+          "name": "modDatetime",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        { "title": "태그", "name": "tags", "type": "tags" },
+        {
+          "title": "추천 글",
+          "name": "featured",
+          "type": "boolean",
+          "default": false
+        },
+        { "title": "초안", "name": "draft", "type": "boolean", "default": true }
+      ]
+    }
+  ],
+  "frontMatter.preview.host": "http://localhost:4321/psl-tech",
+  "frontMatter.preview.pathName": "/posts/{{pathToken.relPath}}/",
+  "frontMatter.preview.trailingSlash": true
+}

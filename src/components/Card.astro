@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getPostUrl } from "@/utils/getPostPaths";
+import { toTransitionName } from "@/utils/toTransitionName";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { slugifyStr } from "@/utils/slugify";
+import Datetime from "./Datetime.astro";
+type Props = {
+  variant?: "h2" | "h3";
+  featured?: boolean;
+} & CollectionEntry<"posts">;
+const {
+  variant: Heading = "h2",
+  featured = false,
+  id,
+  data,
+  filePath,
+} = Astro.props;
+---
+
+<li class:list={["post-card", { "post-card-featured": featured }]}>
+  <div class="card-topline">
+    <span class="eyebrow"
+      >{
+        data.draft
+          ? "DRAFT · 로컬 초안"
+          : featured
+            ? "PICKED NOTE"
+            : "ENGINEERING NOTE"
+      }</span
+    ><span class="card-arrow" aria-hidden="true">↗</span>
+  </div>
+  <a class="card-title" href={getPostUrl(id, filePath, Astro.currentLocale)}
+    ><Heading transition:name={toTransitionName(id)}>{data.title}</Heading></a
+  >
+  <p class="card-description">{data.description}</p>
+  <div class="card-bottom">
+    <Datetime {...data} /><div class="card-tags">
+      {
+        data.tags
+          .slice(0, 2)
+          .map(tag => (
+            <a
+              href={getRelativeLocaleUrl(
+                Astro.currentLocale ?? "ko",
+                `tags/${slugifyStr(tag)}`
+              )}
+            >
+              #{tag}
+            </a>
+          ))
+      }
+    </div>
+  </div>
+</li>

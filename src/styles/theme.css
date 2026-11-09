@@ -1,0 +1,39 @@
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --font-app:
+    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #fafbf9;
+  --foreground: #202b2b;
+  --accent: #087f73;
+  --accent-foreground: #ffffff;
+  --muted: #edf1ee;
+  --muted-foreground: #64716c;
+  --border: #dce4de;
+  --surface: #ffffff;
+  --surface-accent: #e8f3eb;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #131b1a;
+  --foreground: #e5ede8;
+  --accent: #83d7bb;
+  --accent-foreground: #13251d;
+  --muted: #23332d;
+  --muted-foreground: #a0b4a8;
+  --border: #30443b;
+  --surface: #1b2722;
+  --surface-accent: #20382d;
+}

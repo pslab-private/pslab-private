@@ -1,27 +1,28 @@
 ---
-title: "About PSL Tech"
-description: "The PHYSICS SiM Lab engineering blog, covering synthetic data and simulation infrastructure for Physical AI."
+title: "About PSL Notes"
+description: "The PHYSICS SiM Lab company blog, sharing thoughts and experiences from technical development to experiments and early ideas."
 ---
 
-**PSL Tech is the engineering blog of PHYSICS SiM Lab.**
+**PSL Notes is the PHYSICS SiM Lab company blog, where we share our thoughts and experiences.**
 
-PHYSICS SiM Lab builds **training infrastructure for Physical AI** using physics-based simulation and synthetic data. We connect data generation, environment construction, and validation so robots can learn the experiences they need in the real world through accurate and varied simulation environments.
+We document what we learn while developing technology, questions that arise in experiments, and ideas we are still shaping. We share both the finished results and the work that leads to them.
 
-## What we build
+## What we write about
 
-- **Physically validated synthetic data** — We generate vision, joint trajectories, and tactile and contact forces as episodes with shared timestamps. Results that pass physical validation are rendered and provided as training data.
-- **Simulation infrastructure** — We build digital twin environments, simulators supporting ROS and VR teleoperation, and Sim-Ready assets with physical properties and collision geometry.
-- **General-purpose robot control** — Through the UDM (Unified Dextrous Manipulator) framework, we develop grasping and motion-planning technology for different robots and hands.
-- **Validation and evaluation** — We research frameworks and benchmarks for evaluating the physical consistency of data, precise robot motion, and world-model predictions and spatial representations.
+- **Technical development** — Implementation work, approaches to solving problems, and the reasons behind design choices.
+- **Experiments and lessons** — Methods we tried, results we observed, limitations, and questions to explore next.
+- **Early ideas** — Thoughts and hypotheses about new possibilities, and directions we would like to try.
 
-## What we document here
+From short notes to in-depth articles, we choose a format that fits the subject. We distinguish experimental findings from untested ideas and describe the conditions and limitations behind our results.
 
-We share implementation work on simulation solvers and robot control, reproducible experiments, and validation of performance and limitations. Alongside results, we document operating conditions and the reasons behind our choices, aiming to make these engineering notes useful in other environments.
+## PHYSICS SiM Lab
+
+PHYSICS SiM Lab builds **training infrastructure for Physical AI** using physics-based simulation and synthetic data. PSL Notes brings together the technology, experience, and ideas that grow out of this work.
 
 ## Get in touch
 
 - [PHYSICS SiM Lab company website](https://pslab.ai/)
 - [Email: ask-psl@pslab.ai](mailto:ask-psl@pslab.ai)
-- [Engineering blog on GitHub](https://github.com/pslab-private/pslab-private.github.io)
+- [PSL Notes on GitHub](https://github.com/pslab-private/pslab-private.github.io)
 
-This introduction is based on the [official website](https://pslab.ai/). Subscribe to new posts through the [English RSS feed](/en/rss.xml).
+Learn more about the company on the [official website](https://pslab.ai/). Subscribe to new notes through the [English RSS feed](/en/rss.xml).

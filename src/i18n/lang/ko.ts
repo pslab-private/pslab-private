@@ -3,14 +3,15 @@ import type { UIStrings } from "../types";
 export default {
   site: {
     description:
-      "PHYSICS SiM Lab의 기술 블로그. 물리 시뮬레이션, 로봇 제어, Physical AI 학습 인프라의 구현과 검증을 기록합니다.",
-    heroTitle: "로봇이 배울 세계를 만듭니다.",
+      "PHYSICS SiM Lab의 회사 블로그, PSL Notes. 기술 개발, 실험에서 배운 점, 아이디어 스케치를 기록합니다.",
+    heroTitle: "만들고, 실험하고, 생각을 기록합니다.",
     heroDescription:
-      "물리 기반 시뮬레이션과 합성 데이터로 Physical AI의 학습 인프라를 구축합니다.",
+      "PSL Notes는 PHYSICS SiM Lab의 회사 블로그입니다. 기술 개발부터 아이디어 스케치까지, 팀이 쌓아가는 생각과 경험을 공유합니다.",
     companySummary:
-      "정확한 물리, 로봇 제어, 검증 가능한 데이터. 구현 과정에서 얻은 지식과 실험을 공유합니다.",
+      "물리 시뮬레이션과 로보틱스를 연구하며 만난 질문, 실험에서 배운 점, 다음 시도를 위한 아이디어를 남깁니다.",
     companyWebsite: "회사 홈페이지",
-    footerDescription: "Physical AI를 위한 시뮬레이션과 기술 기록.",
+    footerDescription:
+      "기술 개발, 실험, 아이디어를 담는 PHYSICS SiM Lab의 기록.",
     emailContact: "이메일 문의하기",
     mainMenu: "메인 메뉴",
     language: "언어 선택",
@@ -45,19 +46,19 @@ export default {
   },
   footer: {
     copyright: "Copyright",
-    allRightsReserved: "기술을 배우고, 경험을 나눕니다.",
+    allRightsReserved: "생각과 경험을 나눕니다.",
   },
   pages: {
     tagTitle: "태그",
     tagDesc: "이 주제로 쌓인 기록입니다.",
     tagsTitle: "태그",
-    tagsDesc: "궁금한 기술과 주제로 글을 찾아보세요.",
+    tagsDesc: "관심 있는 주제로 기록을 찾아보세요.",
     postsTitle: "전체 글",
-    postsDesc: "질문에서 시작해 이해에 이르기까지, 하나씩 쌓아가는 기술 기록.",
+    postsDesc: "기술 개발부터 실험과 아이디어 스케치까지, 팀이 쌓아가는 기록.",
     archivesTitle: "아카이브",
     archivesDesc: "시간의 흐름을 따라 기록을 살펴보세요.",
     searchTitle: "검색",
-    searchDesc: "궁금한 기술, 키워드, 문제 해결 방법을 찾아보세요.",
+    searchDesc: "궁금한 주제나 키워드로 기록을 찾아보세요.",
   },
   a11y: {
     skipToContent: "본문으로 바로가기",
@@ -65,7 +66,7 @@ export default {
     openMenu: "메뉴 열기",
     closeMenu: "메뉴 닫기",
     toggleTheme: "화면 테마 전환",
-    searchPlaceholder: "어떤 기술이 궁금하신가요?",
+    searchPlaceholder: "어떤 기록을 찾으시나요?",
     noResults: "검색 결과가 없습니다.",
     goToPreviousPage: "이전 페이지",
     goToNextPage: "다음 페이지",

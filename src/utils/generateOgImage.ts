@@ -69,7 +69,7 @@ export async function generateOgImage(title: string, description: string) {
             maxHeight: 85,
             overflow: "hidden",
           }),
-          text("PSL TECH  ·  PHYSICAL AI ENGINEERING", {
+          text("PSL NOTES  ·  DEVELOPMENT / EXPERIMENTS / IDEAS", {
             top: 550,
             fontSize: 21,
             color: "#284c82",

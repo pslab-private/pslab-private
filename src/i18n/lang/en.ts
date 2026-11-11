@@ -3,14 +3,15 @@ import type { UIStrings } from "../types";
 export default {
   site: {
     description:
-      "The PHYSICS SiM Lab engineering blog: implementation and validation of physics simulation, robot control, and training infrastructure for Physical AI.",
-    heroTitle: "Building worlds where robots learn.",
+      "PSL Notes, the PHYSICS SiM Lab company blog. Notes on development, lessons from experiments, and early ideas.",
+    heroTitle: "Making, experimenting, and thinking aloud.",
     heroDescription:
-      "We build training infrastructure for Physical AI with physics-based simulation and synthetic data.",
+      "PSL Notes is the PHYSICS SiM Lab company blog. From technical development to early sketches of ideas, we share what our team is thinking and learning.",
     companySummary:
-      "Accurate physics, robot control, and verifiable data. We share what we learn through implementation and experiments.",
+      "Questions from our work in physics simulation and robotics, lessons from experiments, and ideas for what to try next.",
     companyWebsite: "Company website",
-    footerDescription: "Simulation and engineering notes for Physical AI.",
+    footerDescription:
+      "Notes on development, experiments, and ideas from PHYSICS SiM Lab.",
     emailContact: "Contact us by email",
     mainMenu: "Main menu",
     language: "Select language",
@@ -49,23 +50,23 @@ export default {
   },
   footer: {
     copyright: "Copyright",
-    allRightsReserved: "All rights reserved.",
+    allRightsReserved: "Sharing ideas and experiences.",
   },
   pages: {
     tagTitle: "Tag",
     tagDesc: "All the articles with the tag",
 
     tagsTitle: "Tags",
-    tagsDesc: "All the tags used in posts.",
+    tagsDesc: "Find notes on the topics that interest you.",
 
     postsTitle: "Posts",
-    postsDesc: "All the articles I've posted.",
+    postsDesc: "Our team's notes on development, experiments, and early ideas.",
 
     archivesTitle: "Archives",
-    archivesDesc: "All the articles I've archived.",
+    archivesDesc: "Explore our notes over time.",
 
     searchTitle: "Search",
-    searchDesc: "Search any article ...",
+    searchDesc: "Find notes by topic or keyword.",
   },
   a11y: {
     skipToContent: "Skip to content",
@@ -73,7 +74,7 @@ export default {
     openMenu: "Open menu",
     closeMenu: "Close menu",
     toggleTheme: "Toggle theme",
-    searchPlaceholder: "Search posts...",
+    searchPlaceholder: "Search notes...",
     noResults: "No results found",
     goToPreviousPage: "Go to previous page",
     goToNextPage: "Go to next page",

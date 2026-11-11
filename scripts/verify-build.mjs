@@ -3,7 +3,7 @@ import { readFile, readdir, stat } from "node:fs/promises";
 import { join, relative } from "node:path";
 
 const base = "/";
-const site = "https://pslab-private.github.io";
+const site = "https://notes.pslab.ai";
 const walk = async directory =>
   (
     await Promise.all(

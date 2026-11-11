@@ -25,7 +25,7 @@ const links = [
   <a
     class="brand"
     href={getRelativeLocaleUrl(locale, "")}
-    aria-label={`PSL Tech ${t.nav.home}`}
+    aria-label={`${config.site.title} ${t.nav.home}`}
   >
     <span class="brand-logo-frame"
       ><img
@@ -36,7 +36,7 @@ const links = [
         height="42"
       /></span
     >
-    <span class="brand-tech">TECH</span>
+    <span class="brand-tech">NOTES</span>
   </a>
   <nav aria-label={t.site.mainMenu}>
     {

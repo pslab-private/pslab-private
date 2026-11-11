@@ -1,0 +1,18 @@
+{
+  "checked_on": "2026-11-11",
+  "engine": "4.0.0",
+  "wuji_description_commit": "5c4dfa16917355d073e2e1d7e3d03897b6cf9508",
+  "local_mujoco_source_commit": "a937a4f916dc586660145973b015e56e04043377",
+  "hashes": {
+    "README.md": "f816b2bd9e402d141625616e5ef8065de70a03b51bee8c3e42444d3c2f625627",
+    "hand_tactile.xml": "6116e60475bc864eb5984a7a2d9fc7adcece910c5a697d4ac49b723d4517fd1a",
+    "build.py": "9e1afe6c413ebfd48b548e904253644b7a2ac81e8c7fe907a286d04611f9b5fc",
+    "tactile_force.py": "22a4467932ed7407b5f3c5a6c0ec086c3f29e554e36f8bcfdb7a2e8905b75926",
+    "force_image.py": "a921ec89e722e18d936517be7310aac6a8a696d24b6f5e0b4f1cc01ec87c92b9",
+    "surface_contact.py": "ec7cf07f9e9ab46b063fb8f2562ce5603a20b7d3fead8fea9ddab2f00ae7b727",
+    "foo_touch.py": "ab6f748f926464abc4127468880a15cb0b92333fb6e7e60bcf57403cde983fad",
+    "foo_touch_viewer.py": "7574d56cd09208dc07313d8757532a053b1dc4291a136a99c06ed5e7374a0e4c"
+  },
+  "media": "Original plots and local simulation renders; no third-party screenshots or paper figures.",
+  "foo_dog_permission": "Asset publication permission confirmed by project owner in this session."
+}

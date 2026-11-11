@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "object_mass_g": 30.0,
+  "gravity_m_s2": 9.81,
+  "hold_interval_s": [
+    5.8,
+    7.3
+  ],
+  "hold_lift_mm_range": [
+    79.86627728264489,
+    79.86811325784265
+  ],
+  "hold_vertical_hand_force_N": 0.2942999999959553,
+  "expected_weight_N": 0.2943,
+  "hold_max_support_force_N": 0.0,
+  "object_free_joint": true,
+  "object_mocap": false,
+  "welds": 0,
+  "applied_external_forces": false,
+  "released_at_end": true,
+  "engine_warnings": 0
+}
